@@ -1,11 +1,11 @@
 const prompt = require('prompt-sync')({ sigint: true });
-const { checkData, listar, adicionar } = require('./Ferias_Modulos');
+const { checkData, listar, adicionar } = require('./main.js');
 
 
-nome = prompt('qual o seu nome?');
+nome = prompt('Qual o seu nome? ');
 
 while (true) {
-    console.log(`selecione a opção desejada:\n1 - adicionar atividade\n2 - listar atividades`);
+    console.log(`Selecione a opção desejada:\n1 - adicionar atividade\n2 - listar atividades`);
     opcao = Number(prompt());
 
     switch (opcao) {
@@ -18,7 +18,7 @@ while (true) {
             process.exit();
             break;
         default:
-            console.log('opção invalida');
+            console.log('Opção inválida');
             break;
     }
 }

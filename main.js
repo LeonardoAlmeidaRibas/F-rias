@@ -4,16 +4,16 @@ let Dia = [];
 
 function checkData() {
     if (isNaN(data)) {
-        console.log('data invalida, por favor insira uma data válida');
+        console.log('Data inválida, insira uma data válida.');
     } else {
         Atividades.push(acao);
         Dia.push(data);
-        console.log('atividade adicionada com sucesso. Insira outra atividade ou digite sair');
+        console.log('Atividade adicionada com sucesso. Insira outra atividade ou digite sair');
     }
 }
 
 function listar() {
-    console.log(`\no seu nome é ${nome}, e aqui estão suas atividades: \n`);
+    console.log(`\nO seu nome é ${nome}, e aqui estão suas atividades: \n`);
 
     Atividades.forEach((acao, index) => {
         console.log(index + 1 + '. ' + acao + ' foi realizada no dia ' + Dia[index]);
