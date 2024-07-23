@@ -1,29 +1,24 @@
 const prompt = require('prompt-sync')({ sigint: true });
-let Atividades = [];
-let Dia = [];
+const { checkData, listar, adicionar } = require('./Ferias_Modulos');
 
-function checkData() {
-    if (isNaN(data)) {
-        console.log('Data inválida, insira uma data válida.');
-    } else {
-        Atividades.push(acao);
-        Dia.push(data);
-        console.log('Atividade adicionada com sucesso. Insira outra atividade ou digite sair.');
+
+nome = prompt('qual o seu nome?');
+
+while (true) {
+    console.log(`selecione a opção desejada:\n1 - adicionar atividade\n2 - listar atividades`);
+    opcao = Number(prompt());
+
+    switch (opcao) {
+        case 1:
+            adicionar();
+            checkData(data);
+            break;
+        case 2:
+            listar();
+            process.exit();
+            break;
+        default:
+            console.log('opção invalida');
+            break;
     }
 }
-
-function listar() {
-    console.log(`\nO seu nome é ${nome}, e aqui estão suas atividades: \n`);
-
-    Atividades.forEach((acao, index) => {
-        console.log(index + 1 + '. ' + acao + ' foi realizada no dia ' + Dia[index]);
-    });
-    process.exit();
-}
-
-function adicionar() {
-    acao = prompt('O quê você fez nas férias?');
-    data = Number(prompt('Qual dia?'));
-}
-
-module.exports = { checkData, listar, adicionar };

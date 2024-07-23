@@ -1,36 +1,29 @@
-const prompt = require("prompt-sync")({ sigint: true });
+const prompt = require('prompt-sync')({ sigint: true });
+let Atividades = [];
+let Dia = [];
 
-const dias = [];
-
-function create(dias) {
-    dias.push(dias)
-}
-
-const read = () => {
-    if(dias.length === 0) {
-        console.log(`Nenhum dia encontrado.`)
+function checkData() {
+    if (isNaN(data)) {
+        console.log('data invalida, por favor insira uma data válida');
+    } else {
+        Atividades.push(acao);
+        Dia.push(data);
+        console.log('atividade adicionada com sucesso. Insira outra atividade ou digite sair');
     }
-    dias.forEach((dias, indice) => {
-        console.log(`${indice + 1} - ${dias}`)
-    })
 }
 
-const update = function(dias, indice) {
-    dias[indice] = dias
+function listar() {
+    console.log(`\no seu nome é ${nome}, e aqui estão suas atividades: \n`);
+
+    Atividades.forEach((acao, index) => {
+        console.log(index + 1 + '. ' + acao + ' foi realizada no dia ' + Dia[index]);
+    });
+    process.exit();
 }
 
-const destroy = indice => {
-    if(dias.includes(indice)) {
-        dias.splice(indice, 1)
-        console.log(`Dia Removido!`)
-    }
-    dias.splice(indice, 1)
+function adicionar() {
+    acao = prompt('o que você fez nas férias?');
+    data = Number(prompt('Que dia?'));
 }
 
-module.exports = {
-    dias,
-    create,
-    read,
-    update,
-    destroy
-}
+module.exports = { checkData, listar, adicionar };
